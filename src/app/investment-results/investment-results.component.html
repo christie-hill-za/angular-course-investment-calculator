@@ -1,0 +1,28 @@
+@if (!investmentResults) {
+  <p class="center">Please calculate the investment first.</p>
+} @else {
+  <table>
+    <thead>
+    <tr>
+      <th>Year</th>
+      <th>Investment value</th>
+      <th>Interest (Year)</th>
+      <th>Total Interest</th>
+      <th>Invested Capital</th>
+    </tr>
+    </thead>
+    <tbody>
+    @for (result of investmentResults; track result.year) {
+      <tr>
+        <td>{{ result.year }}</td>
+        <td>{{ result.investmentValue | currency:"ZAR" }}</td>
+        <td>{{ result.annualInterest | currency:"ZAR" }}</td>
+        <td>{{ result.totalInterest | currency:"ZAR" }}</td>
+        <td>{{ result.investedCapital | currency:"ZAR" }}</td>
+      </tr>
+    }
+    </tbody>
+  </table>
+}
+
+
